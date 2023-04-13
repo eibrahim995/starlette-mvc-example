@@ -9,5 +9,7 @@ In this small project we are gonna create a small rest api, using [Starlette](ht
 - `views.py` is the view layer.
 - `server.py` is the application entrypoint.
 
+# Tests
+- To run tests `pytest tests.py`.
 
 
