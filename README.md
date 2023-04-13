@@ -10,6 +10,15 @@ In this small project we are gonna create a small rest api, using [Starlette](ht
 - `server.py` is the application entrypoint.
 
 # Tests
+- Install requirements: `pip install -r requirements.txt`.
 - To run tests `pytest tests.py`.
 
+# Running the application
+- Install requirements: `pip install -r requirements.txt`.
+- Start the server: `uvicorn server:app`.
+- Navigate to `/posts`, you should see an auth error and status code of 403, because of our auth middleware.
 
+![Auth error](docs/bad.png "Auth error")
+- Add a basic auth, username=hema, and password=hema, and you will see the correct result.
+
+![Successful Result](docs/good.png "Successful Result")
