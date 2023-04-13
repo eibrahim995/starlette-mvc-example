@@ -1,3 +1,5 @@
+import json
+
 from starlette.testclient import TestClient
 
 from models import Post
@@ -9,7 +11,7 @@ def test_posts_endpoint():
     client.headers = {"Authorization": "Basic aGVtYTpoZW1h"}  # username: hema, password: hema
     response = client.get('/posts')
     assert response.status_code == 200
-    assert response.json().get("result") == Post.objects.select("user_id", 1)
+    assert response.json().get("result") == json.dumps([post.dict() for post in Post.objects.select("user_id", 1)])
 
 
 def test_middleware_no_auth():
